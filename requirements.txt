@@ -1,0 +1,13 @@
+streamlit
+dlib
+mmcv
+scipy
+numpy
+matplotlib
+scikit-build
+opencv_python
+pillow
+torch>=0.4.0
+torchvision
+pytorch-ignite
+gdown
