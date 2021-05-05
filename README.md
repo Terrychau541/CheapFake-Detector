@@ -17,6 +17,8 @@ In order to use the user interface locally, first pip install all requirements i
 
 <img src="https://raw.githubusercontent.com/Terrychau541/CheapFake-Detector/main/streamlitcli.png" alt="Streamlit CLI" width="600"/>
 
+In order to run the interface, we also have our model weights under the models folder. 
+
 ## Model Training
 As for how our solution works, we have our model training code in the “Training folder”. Like the reference research paper, we also use the DRN model written by Yu et al. While they included a basic pytorch training loop, we expanded on that in regards to data augmentation and more sophisticated lr scheduling. In order to run training yourself, create a dataset folder containing a train and val folder, each of which should contain two folders of Edited and Unedited images. Now, you can run Train.ipynb, although you may need to update the dataset location in the python command. By default, it points to ~/datasets/.
 
