@@ -22,3 +22,5 @@ As for how our solution works, we have our model training code in the “Trainin
 Reference Paper: https://peterwang512.github.io/FALdetector/ 
 
 DRN source code: https://github.com/fyu/drn
+
+Skin-tone Editing code: https://github.com/cirbuk/skin-detection
