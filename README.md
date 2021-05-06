@@ -9,7 +9,13 @@ You can run our models on this [website interface](http://18.237.199.72:8501/).
 Throughout this project, we were advised by FakeNetAI, a Berkeley startup commited to detecting manipulated media. We thank them for their support and for helping us build our end product.
 
 ## Data Generation
-There are three folders in this repo. The Data Generation folder contains the contents of our data generation process. In this is the Script.jsx file that we used to script facial warps in Photoshop, and a modified copy of the open-source [Skin-Tone Editing](https://github.com/cirbuk/skin-detection) algorithm that we used to create our data. To produce our skin smoothing dataset, we used more manual commands in Photoshop, and do not have a script to be uploaded here.
+There are three folders in this repo. The Data Generation folder contains the contents of our data generation process. In this is the Script.jsx file that we used to script facial warps in Photoshop, and the open-source [Skin-Tone Editing](https://github.com/cirbuk/skin-detection) algorithm that we used to create our data. 
+
+In order to use the facewarp script, you must open Photoshop on your machine, and upload the script. In order to automate the scripting process, you must first open Photoshop. Then open the Actions" tab under Window, and select the option to create a new action. Define your action settings, and press record. While recording, select File -> Scripts -> Browse, and then open the Script.jsx file. Press the stop record buton on the Actions tab, and the script will be saved as a Photoshop action. To use this on a large dataset, select File -> Automate -> Batch. This will prompt a screen for you to select the action to apply to a folder of photos. Under action, select your script and then select the source folder where your unedited photos are located. Finally, select thedestination folder you would like to save the edited images to, and press ok. For reference on how to use Photoshop's batch editing feature, see [this video] (https://www.youtube.com/watch?v=_actEE8kYtM&ab_channel=TutorialswithGS).
+
+To replicate our skin tone changing data generation, open the Skintone Script.ipynb file. In the second cell, set "unedited_path" to the file path of the folder of images you would like to edit in the following format: "Demo/Training Set/Unedited/". Then, set "edited_path" to the file path of the folder you would like to save edited photos in. Note that the algorithm does not always work, and for the data generation process, any photos that do not process correctly are deleted from the unedited path. 
+
+To produce our skin smoothing dataset, we used more manual commands in Photoshop, and do not have a script to be uploaded here.
 
 To view and download the datasets used to generate our models, you can go to [this link](https://drive.google.com/drive/folders/16XFXg5zk1uCbFNFn_5ezA4iCaLVkRvm3?usp=sharing). 
 
