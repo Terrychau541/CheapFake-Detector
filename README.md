@@ -6,6 +6,8 @@ Our project is a set of Dilated Neural Net models that detects facial image mani
 To combat facial CheapFakes, we have produced one comprehensive model aimed to detect all three of these manipulations, as well as three separate models geared towards detecting each specific manipulation. We base our product off existing work by Wang et al. which is referenced at the bottom of this document.
 You can run our models on this [website interface](http://18.237.199.72:8501/).
 
+Throughout this project, we were advised by FakeNetAI, a Berkeley startup commited to detecting manipulated media. We thank them for their support and for helping us build our end product.
+
 ## Data Generation
 There are three folders in this repo. The Data Generation folder contains the contents of our data generation process. In this is the Script.jsx file that we used to script facial warps in Photoshop, and a modified copy of the open-source [Skin-Tone Editing](https://github.com/cirbuk/skin-detection) algorithm that we used to create our data. To produce our skin smoothing dataset, we used more manual commands in Photoshop, and do not have a script to be uploaded here.
 
