@@ -1,3 +1,5 @@
+# This code has been taken from the DRN repository by Yu et al.: https://github.com/fyu/drn
+
 import pdb
 
 import torch.nn as nn
