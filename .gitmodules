@@ -1,0 +1,3 @@
+[submodule "Data Generation/skintone"]
+	path = Data Generation/skintone
+	url = https://github.com/cirbuk/skin-detection

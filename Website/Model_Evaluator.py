@@ -26,16 +26,16 @@ def load_classifier(model_path, gpu_id):
     return model
 
 
-
 tf = transforms.Compose([
-            transforms.Resize((224, 224)),
-#             transforms.RandomResizedCrop(224),
-            # transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                 std=[0.229, 0.224, 0.225])])
+    transforms.Resize((224, 224)),
+    #             transforms.RandomResizedCrop(224),
+    # transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225])])
 
-def classify_fake(image,model, no_crop=False, gpu_id =0 ,
+
+def classify_fake(image, model, no_crop=False, gpu_id=0,
                   model_file='utils/dlib_face_detector/mmod_human_face_detector.dat'):
     # Data preprocessing
     im_w, im_h = Image.open(image).size
@@ -55,8 +55,7 @@ def classify_fake(image,model, no_crop=False, gpu_id =0 ,
         sm = torch.nn.Softmax()
         output = model(face_tens.unsqueeze(0))
         print(output)
-        prob = sm(output).numpy()[0][0]
-
+        prob = sm(output).cpu().numpy()[0][0]
 
     return prob
 
@@ -77,4 +76,5 @@ if __name__ == '__main__':
 
     model = load_classifier(args.model_path, args.gpu_id)
     prob = classify_fake(model, args.input_path, args.no_crop)
-    print("Probibility being modified by Photoshop FAL: {:.2f}%".format(prob*100))
+    print(
+        "Probibility being modified by Photoshop FAL: {:.2f}%".format(prob*100))
