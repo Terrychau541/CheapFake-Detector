@@ -26,23 +26,29 @@ select = st.selectbox('Select Type of CheapFake', ["Comprehensive", "Facial Feat
 
 image = st.file_uploader("Select an image", type = ["png", "jpg", "jpeg"])
 
+comprehensive = gcm.load_classifier(model_path = 'models/combined.pth.tar', gpu_id = 0)
+facewarp = gcm.load_classifier(model_path = 'models/facewarp.pth.tar', gpu_id = 0)
+smooth = gcm.load_classifier(model_path = 'models/smooth.pth.tar', gpu_id = 0)
+skintone= gcm.load_classifier(model_path = 'models/skintone.pth.tar', gpu_id = 0)
+
+
 if image is not None:
     st.image(image)
 
     try:
 
         if select == "Comprehensive":
-            prob = gcm.classify_fake(image, model_path = 'models/combined.pth.tar')
+            prob = gcm.classify_fake(image, model = comprehensive)
             edit = "facial editing"
         elif select == "Facial Feature Editing":
-            prob = gcm.classify_fake(image, model_path = 'models/facewarp.pth.tar')
+            prob = gcm.classify_fake(image, model = facewarp)
             edit = "facial feature editing"
         elif select == "Skin smoothing":
-            prob = gcm.classify_fake(image, model_path = 'models/smooth.pth.tar')
+            prob = gcm.classify_fake(image, model = smooth)
             edit = "skin smoothing"
         elif select == "Skintone Changing":
             edit = "skintone editing"
-            prob = gcm.classify_fake(image, model_path = 'models/skintone.pth.tar')
+            prob = gcm.classify_fake(image, model = skintone)
 
         st.write("The probability of " + edit+  " is {:.2f}%".format(prob*100))
 
